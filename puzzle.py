@@ -62,12 +62,11 @@ def check_color(board:list[str]) -> bool:
     True
     '''
     board_rotate = []
-    for i in range(len(board)):
+    for i, _ in enumerate(board):
         line = []
-        for j in range(len(board)):
-            line.append(board[j][i])
+        for j in board:
+            line.append(j[i])
         board_rotate.append(line)
-    
     test_lines = []
     hor_index = 8
     ver_index = 0
