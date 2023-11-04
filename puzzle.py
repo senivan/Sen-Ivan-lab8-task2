@@ -3,11 +3,23 @@
 def check_horizontal(board:list[str])->bool:
     '''
     Function that checks horizontal lines of board
-    
+    >>> board = [\
+ "**** ****",\
+ "***1 ****",\
+ "**  3****",\
+ "* 4 1****",\
+ "     9 5 ",\
+ " 6  83  *",\
+ "3   1  **",\
+ "  8  2***",\
+ "  2  ****"]
+    >>> check_horizontal(board)
+    True
     '''
     for line in board:
-        if len(set(line)) != len(line):
-            return False
+        for lt in line:
+            if lt != '*' and lt != ' ' and line.count(lt) > 1:
+                return False
     return True
 
 def check_vertical(board:list[str])->bool:
@@ -28,8 +40,9 @@ def check_vertical(board:list[str])->bool:
     '''
     for i in range(len(board)):
         line = [board[j][i] for j in range(len(board))]
-        if len(set(line)) != len(line):
-            return False
+        for lt in line:
+            if lt != '*' and lt != ' ' and line.count(lt) > 1:
+                return False
     return True
 
 def validate_board(board:list[str]) -> bool:
