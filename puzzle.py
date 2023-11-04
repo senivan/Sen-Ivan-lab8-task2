@@ -100,7 +100,7 @@ def validate_board(board:list[str]) -> bool:
     >>> validate_board(board)
     False
     '''
-
+    return check_horizontal(board) and check_vertical(board) and check_color(board)
 
 if __name__ == "__main__":
     import doctest
